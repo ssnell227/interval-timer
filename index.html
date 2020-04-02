@@ -6,50 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interval timer</title>
     <link type='text/css' rel="stylesheet" href="/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap" rel="stylesheet">
     <script defer type='text/javascript' src="/index.js"></script>
 </head>
 
 <body>
-    <div id="set-counter">
-        <h1>Set:</h1>
-        <h1 id='set-display'></h1>
-    </div>
-    <div id="statusContainer">
-        <h1 id='status'> </h1>
-    </div>
-    <div id="timer">
-        <h1 id='timerMinutes'>00</h1>
-        <h1>:</h1>
-        <h1 id='timerSeconds'>00</h1>
-    </div>
-    <div id='userInput'></div>
-    <label for="sets">Sets:</label>
-    <input id='sets' type="number" min='1' max='100' value='1'>
+    <div id="div-container">
+        <div id="statusContainer">
+            <h1 class='hide' id='status'></h1>
+        </div>
+        <div class='display' id="set-counter">
+            <h1>Set:</h1>
+            <h1 id='set-display'>0</h1>
+        </div>
+        <div class='display' id="timer">
+            <h1 id='timerMinutes'>00</h1>
+            <h1>:</h1>
+            <h1 id='timerSeconds'>00</h1>
+        </div>
+        <div id='userInput'>
+            <div id="sets-container">
+                <label for="sets">Sets:</label>
+                <input id='sets' type="number" min='1' max='100' value='1'>
+            </div>
+            <br>
 
-    <br>
+            <div class='timer-input' id="action-container">
+                <label for="actionMinutes">Action:</label>
+                <select name="Action (minutes)" id="actionMinutes">
+                </select>
+                <label for="actionMinutes">m</label>
+                <select name="Action (seconds)" id="actionSeconds">
+                </select>
+                <label for="actionSeconds">s</label>
+            </div>
+            <br>
 
-    <label for="actionMinutes">Action:</label>
-    <select name="Action (minutes)" id="actionMinutes">
-    </select>
-    <label for="actionMinutes">m</label>
-    <select name="Action (seconds)" id="actionSeconds">
-    </select>
-    <label for="actionSeconds">s</label>
-
-    <br>
-
-    <label for="breakMinutes">Break:</label>
-    <select name="Break time (minutes)" id="breakMinutes">
-    </select>
-    <label for="breakMinutes">m</label>
-    <select name="Break time (seconds)" id="breakSeconds">
-    </select>
-    <label for="actionSeconds">s</label>
-    </div>
-    <div id='buttons'>
-        <button id='start'>Start</button>
-        <button id='pause-continue'>Pause</button>
-        <button id='reset'>Reset</button>
+            <div class='timer-input' id="break-container">
+                <label for="breakMinutes">Break:</label>
+                <select name="Break time (minutes)" id="breakMinutes">
+                </select>
+                <label for="breakMinutes">m</label>
+                <select name="Break time (seconds)" id="breakSeconds">
+                </select>
+                <label for="breakSeconds">s</label>
+            </div>
+        </div>
+        <div id='buttons'>
+            <button id='start'>Start</button>
+            <button id='pause-continue'>Pause</button>
+            <button id='reset'>Reset</button>
+        </div>
     </div>
 </body>
 

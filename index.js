@@ -51,6 +51,26 @@ const startButton = document.getElementById('start')
 const pauseContinueButton = document.getElementById('pause-continue')
 const resetButton = document.getElementById('reset')
 
+//define variables for modal
+const modal = document.getElementById('modal')
+const saveButton = document.getElementById('save')
+const cancelButton = document.getElementById('modal-cancel')
+
+//modal functions
+saveButton.onclick = function () {
+    modal.style.display = 'block'
+}
+
+cancelButton.onclick = function () {
+    modal.style.display = 'none'
+}
+
+window.onclick = function (event) {
+    if (event.target === modal) {
+        modal.style.display = 'none'
+    }
+}
+
 //setter function puts user input values into variables for use by timer
 function setter() {
     if (!breakStatus) {
@@ -90,7 +110,7 @@ function setter() {
         setTimeout(function () {
             displayStatus.classList.remove('BEEFCAKE')
             displayStatus.classList.add('hide')
-        },6000)
+        }, 2000)
         displaySet.innerHTML = 'Finished all sets'
         startButton.innerHTML = 'Restart'
         started = false;
@@ -134,6 +154,7 @@ function timer() {
 
 //Start timer and populate display
 function startTimer() {
+    console.log(started)
     if (!started) {
     started = true;
     currentSet = 0

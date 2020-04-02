@@ -56,6 +56,43 @@
             <button id='start'>Start</button>
             <button id='pause-continue'>Pause</button>
             <button id='reset'>Reset</button>
+            <br>
+            <button id='save'>Save Timer</button>
+        </div>
+    </div>
+    <div id='modal' class="modal">
+        <div class="modal-content">
+            <div id="timer-name">
+                <input id='timer-name' onfocus='this.value=""' type="text" value='Timer Name'>
+            </div>
+            <div>
+                <label>Sets:</label>
+                <input id='modal-sets' type="number" min='1' max='100' value='1'>
+            </div>
+            <br>
+
+            <div id="modal-action-container">
+                <label>Action:</label>
+                <select id="modal-actionMinutes">
+                </select>
+                <label>m</label>
+                <select id="modal-actionSeconds">
+                </select>
+                <label>s</label>
+            </div>
+            <br>
+
+            <div id="modal-break-container">
+                <label>Break:</label>
+                <select id="modal-breakMinutes">
+                </select>
+                <label>m</label>
+                <select id="modal-breakSeconds">
+                </select>
+                <label>s</label>
+            </div>
+            <button id='submit-save'>Submit</button>
+            <button id='modal-cancel'>Cancel</button>
         </div>
     </div>
 </body>

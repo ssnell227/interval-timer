@@ -6,20 +6,40 @@ const populateDropdowns = () => {
         option.innerHTML = i
         document.getElementById('actionMinutes').appendChild(option)
     }
+    for (let i = 0; i < 60; i++) {
+        let option = document.createElement('option')
+        option.innerHTML = i
+        document.getElementById('modal-actionMinutes').appendChild(option)
+    }
     for (let i = 1; i < 60; i++) {
         let option = document.createElement('option')
         option.innerHTML = i
         document.getElementById('actionSeconds').appendChild(option)
+    }
+    for (let i = 1; i < 60; i++) {
+        let option = document.createElement('option')
+        option.innerHTML = i
+        document.getElementById('modal-actionSeconds').appendChild(option)
     }
     for (let i = 0; i < 60; i++) {
         let option = document.createElement('option')
         option.innerHTML = i
         document.getElementById('breakMinutes').appendChild(option)
     }
+    for (let i = 0; i < 60; i++) {
+        let option = document.createElement('option')
+        option.innerHTML = i
+        document.getElementById('modal-breakMinutes').appendChild(option)
+    }
     for (let i = 1; i < 60; i++) {
         let option = document.createElement('option')
         option.innerHTML = i
         document.getElementById('breakSeconds').appendChild(option)
+    }
+    for (let i = 1; i < 60; i++) {
+        let option = document.createElement('option')
+        option.innerHTML = i
+        document.getElementById('modal-breakSeconds').appendChild(option)
     }
 }
 
@@ -59,6 +79,11 @@ const cancelButton = document.getElementById('modal-cancel')
 //modal functions
 saveButton.onclick = function () {
     modal.style.display = 'block'
+    document.getElementById('modal-sets').value = document.getElementById('sets').value
+    document.getElementById('modal-actionMinutes').value = document.getElementById('actionMinutes').value
+    document.getElementById('modal-actionSeconds').value = document.getElementById('actionSeconds').value
+    document.getElementById('modal-breakMinutes').value = document.getElementById('breakMinutes').value
+    document.getElementById('modal-breakSeconds').value = document.getElementById('breakSeconds').value
 }
 
 cancelButton.onclick = function () {

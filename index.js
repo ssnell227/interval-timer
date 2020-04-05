@@ -6,6 +6,9 @@ let totalSets;
 let seconds = 0
 let minutes = 0
 
+const timerSeconds = document.getElementById("timerSeconds")
+const timerMinutes = document.getElementById("timerMinutes")
+
 let displaySeconds;
 let displayMinutes;
 let displaySet = document.getElementById('set-display')
@@ -19,6 +22,14 @@ let displayStatus = document.getElementById('status')
 
 //define variable to hold interval
 let interval;
+
+//define variables to hold inputs
+const actionSeconds = document.getElementById('actionSeconds')
+const actionMinutes = document.getElementById('actionMinutes')
+const breakSeconds = document.getElementById('breakSeconds')
+const breakMinutes = document.getElementById('breakMinutes')
+const setsInput = document.getElementById('sets')
+
 
 //define variables to hold buttons
 const startButton = document.getElementById('start')
@@ -50,8 +61,8 @@ function setter() {
             displayStatus.classList.add('hide')
         }, 1000)
         //change timer display
-        seconds = document.getElementById('actionSeconds').value
-        minutes = document.getElementById('actionMinutes').value
+        seconds = actionSeconds.value
+        minutes = actionMinutes.value
     } else if (currentSet < totalSets) {
         //animation
         displayStatus.innerHTML = 'Break'
@@ -62,8 +73,8 @@ function setter() {
             displayStatus.classList.add('hide')
         }, 1000)
         //change timer display
-        seconds = document.getElementById('breakSeconds').value
-        minutes = document.getElementById('breakMinutes').value
+        seconds = breakSeconds.value
+        minutes = breakMinutes.value
     }
     if (currentSet > totalSets) {
         clearInterval(interval)
@@ -109,10 +120,8 @@ function timer() {
         displayMinutes = minutes;
     }
 
-    document.getElementById("timerMinutes").innerHTML =
-        displayMinutes
-    document.getElementById("timerSeconds").innerHTML =
-        displaySeconds
+    timerMinutes.innerHTML = displayMinutes
+    timerSeconds.innerHTML = displaySeconds
 }
 
 //Start timer and populate display
@@ -122,13 +131,13 @@ function startTimer() {
         started = true;
         startButton.innerHTML = 'Restart'
         currentSet = 0
-        totalSets = document.getElementById('sets').value
+        totalSets = setsInput.value
         setter()
         interval = setInterval(timer, 1000)
     } else if (started) {
         clearInterval(interval)
         currentSet = 0
-        totalSets = document.getElementById('sets').value
+        totalSets = setsInput.value
         setter()
         interval = setInterval(timer, 1000)
     }
@@ -157,13 +166,13 @@ function reset() {
     pauseContinueButton.innerHTML = 'Pause';
     displayStatus.innerHTML = 'Ready?'
     displaySet.innerHTML = '0'
-    document.getElementById('timerMinutes').innerHTML = "00"
-    document.getElementById('timerSeconds').innerHTML = "00"
-    document.getElementById('sets').value = 1
-    document.getElementById('actionMinutes').value = 0
-    document.getElementById('actionSeconds').value = 1
-    document.getElementById('breakMinutes').value = 0
-    document.getElementById('breakSeconds').value = 1
+    timerMinutes.innerHTML = "00"
+    timerSeconds.innerHTML = "00"
+    setsInput.value = 1
+    actionMinutes.value = 0
+    actionSeconds.value = 1
+    breakMinutes.value = 0
+    breakSeconds.value = 1
 }
 
 startButton.addEventListener('click', startTimer)

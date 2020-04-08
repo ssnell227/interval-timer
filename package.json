@@ -1,0 +1,23 @@
+{
+  "name": "hangboard-timer",
+  "version": "1.0.0",
+  "description": "an interval timer for hangboarding",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssnell227/interval-timer.git"
+  },
+  "author": "Stephen Snell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssnell227/interval-timer/issues"
+  },
+  "homepage": "https://github.com/ssnell227/interval-timer#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

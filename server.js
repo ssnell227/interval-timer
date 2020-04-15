@@ -47,10 +47,16 @@ app.post('/timer/savedtimer', (req, res, next) => {
             $actionSeconds: req.body.timer.actionSeconds,
             $breakMinutes: req.body.timer.breakMinutes,
             $breakSeconds: req.body.timer.breakSeconds
+        }, function (err) {
+            if (err) {
+                res.sendStatus(500)
+            } else {
+                res.status(201).send(`Saved timer: '${req.body.timer.timerName}'`)
+            }
         })
 })
 
 //delete router
 app.delete('/timer/savedtimer:id', (req, res, next) => {
-    
+
 })

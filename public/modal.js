@@ -3,6 +3,7 @@ const modal = document.getElementById('modal')
 const saveButton = document.getElementById('save')
 const cancelButton = document.getElementById('modal-cancel')
 const submitSave = document.getElementById('submit-save')
+const responseText = document.getElementById('saved-response')
 
 //modal functions
 function runModal() {
@@ -61,7 +62,12 @@ submitSave.addEventListener('click', () => {
                     }
                 })
             })
-            .then(response => console.log(response))
+            .then(response => {
+               return response = response.text()
+            })
+            .then(response => {
+                responseText.innerHTML = response;
+            })
     }
 })
 

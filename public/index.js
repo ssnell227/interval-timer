@@ -37,12 +37,12 @@ const pauseContinueButton = document.getElementById('pause-continue')
 const resetButton = document.getElementById('reset')
 
 //import and run dropdown function for select elements
-import { populateDropdowns } from './populateDropdowns.js'
+import { populateDropdowns } from '/populateDropdowns.js'
 
 populateDropdowns()
 
 //import and run modal function
-import { runModal } from './modal.js'
+import { runModal } from '/modal.js'
 
 runModal()
 

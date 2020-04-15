@@ -1,7 +1,6 @@
 const savedTimers = [
     {
-        name: firstTimer,
-
+        name: 'firstTimer',
     },
 ]
 

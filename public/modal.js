@@ -26,6 +26,10 @@ function runModal() {
     }
 }
 
+//view saved timers
+
+
+//post current timer
 submitSave.addEventListener('click', () => {
     const timerName = document.getElementById('timer-name').value;
     const sets = document.getElementById('sets').value
@@ -47,12 +51,14 @@ submitSave.addEventListener('click', () => {
                 },
                 method: 'POST',
                 body: JSON.stringify({
-                    'timerName': timerName,
-                    'sets': sets,
-                    'actionMinutes': actionMinutes,
-                    'actionSeconds': actionSeconds,
-                    'breakMinutes': breakMinutes,
-                    'breakSeconds': breakSeconds
+                    timer: {
+                    timerName: timerName,
+                    sets: sets,
+                    actionMinutes: actionMinutes,
+                    actionSeconds: actionSeconds,
+                    breakMinutes: breakMinutes,
+                    breakSeconds: breakSeconds
+                    }
                 })
             })
             .then(response => console.log(response))

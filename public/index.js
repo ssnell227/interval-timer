@@ -35,6 +35,7 @@ const setsInput = document.getElementById('sets')
 const startButton = document.getElementById('start')
 const pauseContinueButton = document.getElementById('pause-continue')
 const resetButton = document.getElementById('reset')
+const useSaved = document.getElementById('use-saved')
 
 //import and run dropdown function for select elements
 import { populateDropdowns } from '/populateDropdowns.js'

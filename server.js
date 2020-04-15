@@ -6,14 +6,19 @@ const { savedTimers } = require('./data.js')
 
 const squlite3 = require('sqlite3')
 
+const bodyParser = require('body-parser')
+
 const PORT = process.env.PORT || 4002;
 
 app.use(express.static('public'))
+
+app.use(bodyParser.json())
 
 app.listen(PORT, () => {
     console.log('listening on port 4002')
 })
 
+const db = new squlite3.Database('./saved-timers.db')
 
 //Get router w/ querys. sends response as object, not sure if right or not!
 app.get('/timer/savedTimer', (req, res, next) => {
@@ -30,19 +35,22 @@ app.get('/timer/savedTimer', (req, res, next) => {
     })
 })
 
-//post router w querys
+//post router
 app.post('/timer/savedtimer', (req, res, next) => {
-    const timerName = req.query.name;
-    const timerIndex = savedTimers.indexOf(timer => {
-        timer.name === timerName
-    })
-    if (timerName && timerIndex === -1) {
-        savedTimers.push({
-            name: timerName,
+    db.run(`INSERT INTO userTimers 
+    (name, sets, actionMinutes, actionSeconds, breakMinutes, breakSeconds) 
+        VALUES ($name, $sets, $actionMinutes, $actionSeconds, $breakMinutes, $breakSeconds )`,
+        {
+            $name: req.body.timer.timerName,
+            $sets: req.body.timer.sets,
+            $actionMinutes: req.body.timer.actionMiniutes,
+            $actionSeconds: req.body.timer.actionSeconds,
+            $breakMinutes: req.body.timer.breakMinutes,
+            $breakSeconds: req.body.timer.breakSeconds
         })
-    } else {
-        res.status(400).send()
-    }
-    console.log(savedTimers)
 })
 
+//delete router
+app.delete('/timer/savedtimer:id', (req, res, next) => {
+    
+})

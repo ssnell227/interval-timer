@@ -42,10 +42,11 @@ import { populateDropdowns } from '/populateDropdowns.js'
 
 populateDropdowns()
 
-//import and run modal function
+//import and run modal functions
 import { runModal } from '/modal.js'
 
 runModal()
+
 
 //setter function puts user input values into variables for use by timer
 function setter() {

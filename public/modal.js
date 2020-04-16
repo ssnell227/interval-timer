@@ -1,9 +1,12 @@
 //define variables for modal
 const modal = document.getElementById('modal')
+const savedModal = document.getElementById('saved-modal')
 const saveButton = document.getElementById('save')
 const cancelButton = document.getElementById('modal-cancel')
 const submitSave = document.getElementById('submit-save')
 const responseText = document.getElementById('saved-response')
+const useSavedButton = document.getElementById('use-saved')
+const savedCancelButton = document.getElementById('saved-modal-cancel')
 
 //modal functions
 function runModal() {
@@ -20,14 +23,26 @@ function runModal() {
         modal.style.display = 'none'
     }
 
+    useSavedButton.onclick = function () {
+        savedModal.style.display = 'block'
+    }
+    savedCancelButton.onclick = function () {
+        savedModal.style.display = 'none'
+    }
+
     window.onclick = function (event) {
         if (event.target === modal) {
             modal.style.display = 'none'
+        }
+        if (event.target === savedModal) {
+            savedModal.style.display = 'none'
         }
     }
 }
 
 //view saved timers
+
+
 
 
 //post current timer

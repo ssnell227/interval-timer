@@ -20,20 +20,30 @@ app.listen(PORT, () => {
 
 const db = new squlite3.Database('./saved-timers.db')
 
-//Get router w/ querys. sends response as object, not sure if right or not!
+//get all names of timers
 app.get('/timer/savedTimer', (req, res, next) => {
-    const timerName = req.query.name;
-    const timerIndex = savedTimers.indexOf(timer => {
-        timer.name === timerName
-    })
-    savedTimers.forEach(timer => {
-        if (timerIndex !== -1) {
-            res.send(savedTimers[timerIndex])
-        } else {
-            res.status(404).send('No timer by that name')
-        }
-    })
+    if (req.query.name) {
+        db.get('SELECT * FROM userTimers WHERE name = $name', {
+            $name: req.query.name,
+        }, (err, row) =>{
+            if (err) {
+                console.log(err)
+            } else {
+                res.status(200).send(row)
+            }
+        })
+    } else {
+        db.all('SELECT name FROM userTimers;', function (err, row) {
+            if (err) {
+                res.sendStatus(404)
+            } else {
+                res.status(200).send(row)
+            }
+        })
+    }
 })
+
+
 
 //post router
 app.post('/timer/savedtimer', (req, res, next) => {

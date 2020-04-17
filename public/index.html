@@ -64,7 +64,7 @@
     <div id='modal' class="modal">
         <div class="modal-content">
             <div id="timer-name-container">
-                <input id='timer-name' onfocus='this.value=""' type="text" value='Timer Name'>
+                <input id='timer-name' onfocus='this.value=""' type="text" value='Timer Name' maxlength='30'>
             </div>
             <div>
                 <label>Sets:</label>
@@ -99,8 +99,10 @@
         </div>
     </div>
     <div id="saved-modal" class="modal">
-        <div class="modal-content">
-            <h1>some stuff</h1>
+        <div class="saved-modal-content">
+            <div id="fetched-timer-container">
+            </div>
+            <br>
             <button id='saved-modal-cancel'>Cancel</button>
         </div>
     </div>

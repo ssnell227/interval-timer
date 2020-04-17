@@ -40,9 +40,54 @@ function runModal() {
     }
 }
 
-//view saved timers
+//get all timer names
+let clicked = false;
 
+useSavedButton.addEventListener('click', () => {
+    //needs to: fetch all timer names, generate unique saved timer div for each w/button
 
+    fetch('timer/savedtimer/', {
+        method: 'GET'
+    })
+        .then(res => {
+            return res.json();
+        })
+        .then(res => {
+            res.forEach(element => {
+                if (clicked === false) {
+                    let fetchedTimer = document.createElement('div')
+                    fetchedTimer.className = 'fetched-timer'
+                    fetchedTimer.innerHTML = element.name
+                    document.getElementById('fetched-timer-container').appendChild(fetchedTimer)
+                    useSavedTimer(fetchedTimer)
+                }
+            })
+            clicked = true;
+
+        })
+
+})
+
+//use saved timer (fetch individual timer values)
+function useSavedTimer(fetchedTimer) {
+    fetchedTimer.addEventListener('click', () => {
+        fetch(`timer/savedtimer/?name=${fetchedTimer.innerHTML}`, {
+            method: 'GET'
+        })
+            .then(res => {
+                return res.json()
+            })
+            .then(res => {
+                console.log(res)
+                document.getElementById('sets').value = res.sets
+                document.getElementById('actionMinutes').value = res.actionMinutes
+                document.getElementById('actionSeconds').value = res.actionSeconds
+                document.getElementById('breakMinutes').value = res.breakMinutes
+                document.getElementById('breakSeconds').value = res.breakSeconds
+                savedModal.style.display = 'none'
+            })
+    })
+}
 
 
 //post current timer
@@ -68,17 +113,17 @@ submitSave.addEventListener('click', () => {
                 method: 'POST',
                 body: JSON.stringify({
                     timer: {
-                    timerName: timerName,
-                    sets: sets,
-                    actionMinutes: actionMinutes,
-                    actionSeconds: actionSeconds,
-                    breakMinutes: breakMinutes,
-                    breakSeconds: breakSeconds
+                        timerName: timerName,
+                        sets: sets,
+                        actionMinutes: actionMinutes,
+                        actionSeconds: actionSeconds,
+                        breakMinutes: breakMinutes,
+                        breakSeconds: breakSeconds
                     }
                 })
             })
             .then(response => {
-               return response = response.text()
+                return response = response.text()
             })
             .then(response => {
                 responseText.innerHTML = response;

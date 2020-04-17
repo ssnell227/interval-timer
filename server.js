@@ -2,8 +2,6 @@ const express = require('express')
 
 const app = express();
 
-const { savedTimers } = require('./data.js')
-
 const squlite3 = require('sqlite3')
 
 const bodyParser = require('body-parser')

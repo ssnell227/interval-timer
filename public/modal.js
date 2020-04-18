@@ -31,12 +31,12 @@ function runModal() {
     }
 
     window.onclick = function (event) {
-        if (event.target === modal) {
+        if (event.target == document.getElementById('extra-border') || event.target == document.getElementById('div-container') ||
+        event.target === document.getElementById('real-container')) {
             modal.style.display = 'none'
-        }
-        if (event.target === savedModal) {
             savedModal.style.display = 'none'
         }
+        
     }
 }
 

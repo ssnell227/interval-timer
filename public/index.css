@@ -1,6 +1,11 @@
 * {
     display: border-box;
 }
+input,
+select {
+    border-radius: 10px;
+    text-align: center;
+}
 
 html,
 body {
@@ -21,7 +26,7 @@ body {
     background-image: url('https://www.atomikclimbingholds.com/content/images/thumbs/0004365_yaniro-poster.jpeg');
     background-position: center;
     background-repeat: no-repeat;
-    
+    background-size: cover;
 }
 
 #div-container {
@@ -83,6 +88,8 @@ body {
 .display,
 .animation {
     font-family: 'Orbitron', sans-serif;
+    margin: auto;
+    width: fit-content;
 }
 
 #timer h1,
@@ -95,50 +102,69 @@ body {
 #modal-close,
 #submit-save {
     font-family: sans-serif;
-    margin: 20px;
+    font-weight: bold;
+    margin: 20px auto;
+    width: fit-content;
 }
 
 .modal {
     display: none;
-    position: fixed;
+    position: absolute;
     z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: auto;
     padding: 20px;
-    border: 3px solid rgb(61, 61, 61);
-    width: 60%;
+    border: 3px solid black;
+    border-radius: 10px;
+    width: fit-content;
     text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    background-color: rgb(135, 172, 221);
 }
 
 .timer-input label{
     margin-right: 10px;
 }
 
-#buttons button {
+#main-buttons button {
     margin-right: 10px;
     margin-bottom: 10px;
 }
 
 .saved-modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: auto;
     padding: 20px;
-    border: 3px solid rgb(61, 61, 61);
+    border: 3px solid black;
+    border-radius: 10px;
     width: 60%;
     text-align: center;
+    overflow: hidden;
+    width: fit-content;
+    height: fit-content;
+    font-family: sans-serif;
+    font-weight: bold;
+    background-color: rgb(135, 172, 221);
 }
 
 #fetched-timer-container {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#fetched-timer-container div {
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px auto;
 }
 
 .fetched-timer {
@@ -148,4 +174,18 @@ body {
     width: fit-content;
     text-align: center;
     cursor: pointer;
+}
+
+.button {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.button:hover {
+    background-color: gray;
+}
+
+.button:active {
+    transform: scale(.95, .95);
 }

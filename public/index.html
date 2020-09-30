@@ -12,104 +12,104 @@
 
 <body>
     <div id="extra-border">
-    <div id="div-container">
-        <div id="real-container">
-        <div id="statusContainer">
-            <h1 class='hide' id='status'></h1>
-        </div>
-        <div class='display' id="set-counter">
-            <h1>Set:</h1>
-            <h1 id='set-display'>0</h1>
-        </div>
-        <div class='display' id="timer">
-            <h1 id='timerMinutes'>00</h1>
-            <h1>:</h1>
-            <h1 id='timerSeconds'>00</h1>
-        </div>
-        <div id='userInput'>
-            <div id="sets-container">
-                <label for="sets">Sets:</label>
-                <input id='sets' type="number" min='1' max='100' value='1'>
-            </div>
-            <br>
+        <div id="div-container">
+            <div id="real-container">
+                <div id="statusContainer">
+                    <h1 class='hide' id='status'></h1>
+                </div>
+                <div class='display' id="set-counter">
+                    <h1>Set:</h1>
+                    <h1 id='set-display'>0</h1>
+                </div>
+                <div class='display' id="timer">
+                    <h1 id='timerMinutes'>00</h1>
+                    <h1>:</h1>
+                    <h1 id='timerSeconds'>00</h1>
+                </div>
+                <div id='userInput'>
+                    <div id="sets-container">
+                        <label for="sets">Sets:</label>
+                        <input id='sets' type="number" min='1' max='100' value='1'>
+                    </div>
+                    <br>
 
-            <div class='timer-input' id="action-container">
-                <label for="actionMinutes">Action:</label>
-                <select name="Action (minutes)" id="actionMinutes">
-                </select>
-                <label for="actionMinutes">m</label>
-                <select name="Action (seconds)" id="actionSeconds">
-                </select>
-                <label for="actionSeconds">s</label>
-            </div>
-            <br>
+                    <div class='timer-input' id="action-container">
+                        <label for="actionMinutes">Action:</label>
+                        <select name="Action (minutes)" id="actionMinutes">
+                        </select>
+                        <label for="actionMinutes">m</label>
+                        <select name="Action (seconds)" id="actionSeconds">
+                        </select>
+                        <label for="actionSeconds">s</label>
+                    </div>
+                    <br>
 
-            <div class='timer-input' id="break-container">
-                <label for="breakMinutes">Break:</label>
-                <select name="Break time (minutes)" id="breakMinutes">
-                </select>
-                <label for="breakMinutes">m</label>
-                <select name="Break time (seconds)" id="breakSeconds">
-                </select>
-                <label for="breakSeconds">s</label>
+                    <div class='timer-input' id="break-container">
+                        <label for="breakMinutes">Break:</label>
+                        <select name="Break time (minutes)" id="breakMinutes">
+                        </select>
+                        <label for="breakMinutes">m</label>
+                        <select name="Break time (seconds)" id="breakSeconds">
+                        </select>
+                        <label for="breakSeconds">s</label>
+                    </div>
+                </div>
+                <div id='main-buttons'>
+                    <button class='button' id='start'>Start</button>
+                    <button class='button' id='pause-continue'>Pause</button>
+                    <button class='button' id='reset'>Reset</button>
+                    <br>
+                    <button class='button' id='save'>Save Timer</button>
+                    <button class='button' id='use-saved'>Use Saved Timer</button>
+                </div>
             </div>
-        </div>
-        <div id='main-buttons'>
-            <button class='button' id='start'>Start</button>
-            <button class='button' id='pause-continue'>Pause</button>
-            <button class='button' id='reset'>Reset</button>
-            <br>
-            <button class='button' id='save'>Save Timer</button>
-            <button class='button' id='use-saved'>Use Saved Timer</button>
+            <div id='modal' class="modal">
+                <div class="modal-content">
+                    <div id="timer-name-container">
+                        <input id='timer-name' onfocus='this.value=""' type="text" value='Timer Name' maxlength='30'>
+                    </div>
+                    <div>
+                        <label>Sets:</label>
+                        <input id='modal-sets' type="number" min='1' max='100' value='1'>
+                    </div>
+                    <br>
+
+                    <div id="modal-action-container">
+                        <label>Action:</label>
+                        <select id="modal-actionMinutes">
+                        </select>
+                        <label>m</label>
+                        <select id="modal-actionSeconds">
+                        </select>
+                        <label>s</label>
+                    </div>
+                    <br>
+
+                    <div id="modal-break-container">
+                        <label>Break:</label>
+                        <select id="modal-breakMinutes">
+                        </select>
+                        <label>m</label>
+                        <select id="modal-breakSeconds">
+                        </select>
+                        <label>s</label>
+                    </div>
+                    <button class='button' id='submit-save'>Submit</button>
+                    <button class='button' id='modal-cancel'>Cancel</button>
+                    <br>
+                    <h1 id='saved-response'></h1>
+                </div>
+            </div>
+            <div id="saved-modal" class="modal">
+                <div class="saved-modal-content">
+                    <div id="fetched-timer-container">
+                    </div>
+                    <br>
+                    <button class='button' id='saved-modal-cancel'>Cancel</button>
+                </div>
+            </div>
         </div>
     </div>
-    <div id='modal' class="modal">
-        <div class="modal-content">
-            <div id="timer-name-container">
-                <input id='timer-name' onfocus='this.value=""' type="text" value='Timer Name' maxlength='30'>
-            </div>
-            <div>
-                <label>Sets:</label>
-                <input id='modal-sets' type="number" min='1' max='100' value='1'>
-            </div>
-            <br>
-
-            <div id="modal-action-container">
-                <label>Action:</label>
-                <select id="modal-actionMinutes">
-                </select>
-                <label>m</label>
-                <select id="modal-actionSeconds">
-                </select>
-                <label>s</label>
-            </div>
-            <br>
-
-            <div id="modal-break-container">
-                <label>Break:</label>
-                <select id="modal-breakMinutes">
-                </select>
-                <label>m</label>
-                <select id="modal-breakSeconds">
-                </select>
-                <label>s</label>
-            </div>
-            <button class='button' id='submit-save'>Submit</button>
-            <button class='button' id='modal-cancel'>Cancel</button>
-            <br>
-            <h1 id='saved-response'></h1>
-        </div>
-    </div>
-    <div id="saved-modal" class="modal">
-        <div class="saved-modal-content">
-            <div id="fetched-timer-container">
-            </div>
-            <br>
-            <button class='button' id='saved-modal-cancel'>Cancel</button>
-        </div>
-    </div>
-</div>
-</div>
 </body>
 
 </html>
